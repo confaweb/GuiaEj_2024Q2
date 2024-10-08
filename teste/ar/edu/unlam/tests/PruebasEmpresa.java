@@ -6,6 +6,7 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
+import ar.edu.unlam.empresa.Cochera;
 import ar.edu.unlam.empresa.Departamento;
 import ar.edu.unlam.empresa.Empleado;
 import ar.edu.unlam.empresa.Empresa;
@@ -14,7 +15,7 @@ import ar.edu.unlam.empresa.Persona;
 
 public class PruebasEmpresa {
 
-	@Test
+	@Test//#1
 	public void queLaEmpresaPuedaBUscarUnEmpleadoPorDni() {
 		String nombre = "Pedro", apellido = "Sanchez", razoonSocial = "PepeHermanos";
 		Integer dni = 111111, cuit = 3011115;
@@ -32,7 +33,7 @@ public class PruebasEmpresa {
 		assertEquals(ve, vo);
 
 	}
-	@Test
+	@Test//#2
 	public void queLaEmpresaPuedaBuscarUnGerentePordepartamento() {
 		String nombre = "Pedro", apellido = "Sanchez", razoonSocial = "PepeHermanos";
 		Integer dni = 111111, cuit = 3011115;
@@ -49,6 +50,25 @@ public class PruebasEmpresa {
 		// Salida
 		Gerente vo = empresa.buscarGerentePorDepartamento(departamento);
 		Empleado ve = gerente;
+		assertEquals(ve, vo);
+
+	}
+	@Test//#3
+	public void queLaEmpresaPuedaAsignarUNaCocheraPorGerente() {
+		String nombre = "Pedro", apellido = "Sanchez", razoonSocial = "PepeHermanos";
+		Integer dni = 111111, cuit = 3011115;
+		Double salario = 1000000.0, salarioGerente = 5000000.0;
+		LocalDate fechaDeNacimiento = LocalDate.of(2000, 10, 10);
+		Cochera cochera=Cochera.NUMERO_COCHERA;
+		// Entrada
+		
+		Gerente gerente = new Gerente(nombre, apellido, dni, fechaDeNacimiento, salarioGerente);
+		Empresa empresa = new Empresa(razoonSocial, cuit);
+		// Proceso
+		assertTrue(empresa.asignarCochera(gerente, cochera));
+		// Salida
+		Cochera vo = empresa.buscarCocheraPorGenrente(gerente);
+		Cochera ve = cochera;
 		assertEquals(ve, vo);
 
 	}

@@ -77,7 +77,7 @@ public class Empresa {
 
 	public Gerente buscarGerentePorDepartamento(Departamento departamento) {
 		for (Gerente gerente : listadoGerentes) {
-			if (gerente.getDepartamento()!=null&& gerente.getDepartamento().equals(departamento));
+			if (gerente.getDepartamento()!=null&& gerente.getDepartamento()==departamento);
 				return gerente;
 		}
 		return null;
@@ -98,6 +98,23 @@ public class Empresa {
 			return false;
 		Empresa other = (Empresa) obj;
 		return Objects.equals(cuit, other.cuit);
+	}
+
+	public boolean asignarCochera(Gerente gerente,Cochera cochera) {	
+		boolean cocheraAsignada = false;
+		gerente.setCochera(cochera);
+		if (gerente.getCochera()!=null)
+			cocheraAsignada=true;
+		return cocheraAsignada;
+	}
+
+	public Cochera buscarCocheraPorGenrente(Gerente gerente) {
+		Cochera cocheraBuscada=null;
+		for (Gerente gerente1 : listadoGerentes) {
+			if(gerente1.getCochera()!=null)
+				cocheraBuscada=gerente.getCochera();
+		}
+		return cocheraBuscada;
 	}
 
 	
