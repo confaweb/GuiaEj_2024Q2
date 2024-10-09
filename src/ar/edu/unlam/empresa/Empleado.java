@@ -28,7 +28,15 @@ public class Empleado extends Persona {
 			this.salario = salario;
 	}
 
-	private Double calcularSalarioIngeniero() {
+	public CategoriaEmpleado getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(CategoriaEmpleado categoria) {
+		this.categoria = categoria;
+	}
+
+	public Double calcularSalarioIngeniero() {
 		Double salarioIngeniero = this.salario + (salario * ADICIONALpRODUCTIVIDAD);
 		return salarioIngeniero;
 	}

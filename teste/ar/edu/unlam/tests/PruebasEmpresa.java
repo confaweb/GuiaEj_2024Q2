@@ -9,6 +9,7 @@ import org.junit.Test;
 import ar.edu.unlam.empresa.CategoriaEmpleado;
 import ar.edu.unlam.empresa.Cochera;
 import ar.edu.unlam.empresa.Departamento;
+import ar.edu.unlam.empresa.Director;
 import ar.edu.unlam.empresa.Empleado;
 import ar.edu.unlam.empresa.Empresa;
 import ar.edu.unlam.empresa.Gerente;
@@ -103,5 +104,32 @@ public class PruebasEmpresa {
 		assertEquals(ve2, vo2);
 
 	}
+	@Test//#5
+	public void queUnDirectorCobreSueldoExtra() {
+		String nombre = "Pedro", apellido = "Sanchez", razoonSocial = "PepeHermanos";
+		Integer dni = 111111, cuit = 3011115;
+		Double salario = 1000000.0, salarioGerente = 5000000.0,adicionalProductividad=0.20,
+				salarioIngeniero=salario+(salario*adicionalProductividad);
+		LocalDate fechaDeNacimiento = LocalDate.of(2000, 10, 10);
+		Cochera cochera=Cochera.NUMERO_COCHERA;
+		CategoriaEmpleado categoria=CategoriaEmpleado.INGENIERO,categoria2=CategoriaEmpleado.ABOGADO;
+		
+		// Entrada
+		Empleado empleado1 = new Empleado(nombre, apellido, dni, fechaDeNacimiento, salario,categoria);
+		Director director = new Director(nombre, apellido, dni, fechaDeNacimiento, salarioGerente,categoria2);
+		empleado1.setSalario(salario);
+		director.setSalario(salario);
+		
+		//SALIDA
+		
+		Double vo = empleado1.getSalario();
+		Double ve = 1200000.0;
+		assertEquals(ve, vo);
+		Double vo2 = director.getSalario();
+		Double ve2= 7000000.0;
+		assertEquals(ve2, vo2);
+
+	}
+
 
 }
