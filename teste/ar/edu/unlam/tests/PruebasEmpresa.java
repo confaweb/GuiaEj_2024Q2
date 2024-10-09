@@ -6,6 +6,7 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
+import ar.edu.unlam.empresa.CategoriaEmpleado;
 import ar.edu.unlam.empresa.Cochera;
 import ar.edu.unlam.empresa.Departamento;
 import ar.edu.unlam.empresa.Empleado;
@@ -21,9 +22,10 @@ public class PruebasEmpresa {
 		Integer dni = 111111, cuit = 3011115;
 		Double salario = 1000000.0, salarioGerente = 5000000.0;
 		LocalDate fechaDeNacimiento = LocalDate.of(2000, 10, 10);
+		CategoriaEmpleado categoria=CategoriaEmpleado.INGENIERO;
 		// Entrada
-		Empleado empleado1 = new Empleado(nombre, apellido, dni, fechaDeNacimiento, salario);
-		Gerente gerente = new Gerente(nombre, apellido, dni, fechaDeNacimiento, salarioGerente);
+		Empleado empleado1 = new Empleado(nombre, apellido, dni, fechaDeNacimiento, salario,categoria);
+		Gerente gerente = new Gerente(nombre, apellido, dni, fechaDeNacimiento, salarioGerente,categoria);
 		Empresa empresa = new Empresa(razoonSocial, cuit);
 		// Proceso
 		assertTrue(empresa.ingresarEmpleado(empleado1));
@@ -40,9 +42,10 @@ public class PruebasEmpresa {
 		Double salario = 1000000.0, salarioGerente = 5000000.0;
 		LocalDate fechaDeNacimiento = LocalDate.of(2000, 10, 10);
 		Departamento departamento=Departamento.MANTENIMIENTO;
+		CategoriaEmpleado categoria=CategoriaEmpleado.INGENIERO;
 		// Entrada
 		
-		Gerente gerente = new Gerente(nombre, apellido, dni, fechaDeNacimiento, salarioGerente);
+		Gerente gerente = new Gerente(nombre, apellido, dni, fechaDeNacimiento, salarioGerente,categoria);
 		Empresa empresa = new Empresa(razoonSocial, cuit);
 		// Proceso
 		assertTrue(empresa.ingresarGerente(gerente));
@@ -60,16 +63,44 @@ public class PruebasEmpresa {
 		Double salario = 1000000.0, salarioGerente = 5000000.0;
 		LocalDate fechaDeNacimiento = LocalDate.of(2000, 10, 10);
 		Cochera cochera=Cochera.NUMERO_COCHERA;
+		CategoriaEmpleado categoria=CategoriaEmpleado.INGENIERO;
+		
 		// Entrada
 		
-		Gerente gerente = new Gerente(nombre, apellido, dni, fechaDeNacimiento, salarioGerente);
+		Gerente gerente = new Gerente(nombre, apellido, dni, fechaDeNacimiento, salarioGerente,categoria);
 		Empresa empresa = new Empresa(razoonSocial, cuit);
 		// Proceso
 		assertTrue(empresa.asignarCochera(gerente, cochera));
 		// Salida
-		Cochera vo = empresa.buscarCocheraPorGenrente(gerente);
+		Cochera vo = gerente.getCochera();
 		Cochera ve = cochera;
 		assertEquals(ve, vo);
+
+	}
+	@Test//#4
+	public void queElSlarioDeUnEmpleadoIngenieroSumeElAdicionalProdctividad() {
+		String nombre = "Pedro", apellido = "Sanchez", razoonSocial = "PepeHermanos";
+		Integer dni = 111111, cuit = 3011115;
+		Double salario = 1000000.0, salarioGerente = 5000000.0,adicionalProductividad=0.20,
+				salarioIngeniero=salario+(salario*adicionalProductividad);
+		LocalDate fechaDeNacimiento = LocalDate.of(2000, 10, 10);
+		Cochera cochera=Cochera.NUMERO_COCHERA;
+		CategoriaEmpleado categoria=CategoriaEmpleado.INGENIERO,categoria2=CategoriaEmpleado.ABOGADO;
+		
+		// Entrada
+		Empleado empleado1 = new Empleado(nombre, apellido, dni, fechaDeNacimiento, salario,categoria);
+		Empleado empleado2 = new Empleado(nombre, apellido, dni, fechaDeNacimiento, salario,categoria2);
+		empleado1.setSalario(salario);
+		empleado2.setSalario(salario);
+		
+		//SALIDA
+		
+		Double vo = empleado1.getSalario();
+		Double ve = 1200000.0;
+		assertEquals(ve, vo);
+		Double vo2 = empleado2.getSalario();
+		Double ve2= 1000000.0;
+		assertEquals(ve2, vo2);
 
 	}
 

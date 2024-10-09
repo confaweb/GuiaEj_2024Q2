@@ -8,8 +8,8 @@ public class Gerente extends Empleado {
 	private Cochera cochera;
 	private Departamento departamento;
 
-	public Gerente(String nombre, String apellido, Integer dni, LocalDate fechaDeNacimiento,Double salario) {
-		super(nombre, apellido, dni, fechaDeNacimiento, salario);
+	public Gerente(String nombre, String apellido, Integer dni, LocalDate fechaDeNacimiento,Double salario,CategoriaEmpleado categoria) {
+		super(nombre, apellido, dni, fechaDeNacimiento, salario,categoria);
 
 		this.cochera = Cochera.NUMERO_COCHERA;
 		

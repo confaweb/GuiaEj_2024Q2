@@ -108,14 +108,7 @@ public class Empresa {
 		return cocheraAsignada;
 	}
 
-	public Cochera buscarCocheraPorGenrente(Gerente gerente) {
-		Cochera cocheraBuscada=null;
-		for (Gerente gerente1 : listadoGerentes) {
-			if(gerente1.getCochera()!=null)
-				cocheraBuscada=gerente.getCochera();
-		}
-		return cocheraBuscada;
-	}
+	
 
 	
 
