@@ -1,12 +1,14 @@
 package ar.edu.unlam.fuerzaArmada;
 
+import interfaces.Terrestre;
 import interfaces.Volador;
 
-public abstract class Vehiculo implements Volador {
-	
+public abstract class Vehiculo {
+
 	private String codigoVehiculo;
+
 	public Vehiculo(String codigoVehiculo) {
-		this.codigoVehiculo=codigoVehiculo;
+		this.codigoVehiculo = codigoVehiculo;
 	}
 
 	public String getCodigoVehiculo() {
@@ -16,13 +18,5 @@ public abstract class Vehiculo implements Volador {
 	public void setCodigoVehiculo(String codigoVehiculo) {
 		this.codigoVehiculo = codigoVehiculo;
 	}
-
-	
-
-	public Boolean despegar() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
 
 }
