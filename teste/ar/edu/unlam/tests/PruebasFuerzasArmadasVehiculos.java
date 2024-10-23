@@ -13,7 +13,7 @@ import ar.edu.unlam.fuerzaArmada.Vehiculo;
 import interfaces.Terrestre;
 import interfaces.Volador;
 
-public class PruebasFuerzasArmadas {
+public class PruebasFuerzasArmadasVehiculos {
 
 	@Test
 	public void queUnVehiculoVoladorPuedaDespegar() {
