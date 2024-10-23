@@ -1,6 +1,7 @@
-package interfaces;
+package ar.edu.unlam.fuerzaArmada;
 
-import ar.edu.unlam.fuerzaArmada.Vehiculo;
+import interfaces.Acuatico;
+import interfaces.Terrestre;
 
 public class Anfibio extends Vehiculo implements Terrestre,Acuatico{
 
