@@ -1,4 +1,4 @@
-package ar.edu.unlam.fuerzaArmada;
+package ar.edu.unlam.fuerzaArmada.vehiculos;
 
 import interfaces.Terrestre;
 import interfaces.Volador;

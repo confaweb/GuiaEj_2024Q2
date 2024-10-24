@@ -1,11 +1,11 @@
-package ar.edu.unlam.fuerzaArmada;
+package ar.edu.unlam.fuerzaArmada.vehiculos;
 
 import interfaces.Acuatico;
-import interfaces.Terrestre;
+import interfaces.Volador;
 
-public class Anfibio extends Vehiculo implements Terrestre,Acuatico{
+public class HidroAvion extends Vehiculo implements Volador,Acuatico{
 
-	public Anfibio(String codigoVehiculo) {
+	public HidroAvion(String codigoVehiculo) {
 		super(codigoVehiculo);
 		// TODO Auto-generated constructor stub
 	}
@@ -17,7 +17,7 @@ public class Anfibio extends Vehiculo implements Terrestre,Acuatico{
 	}
 
 	@Override
-	public Boolean desplazarse() {
+	public Boolean despegar() {
 		// TODO Auto-generated method stub
 		return true;
 	}

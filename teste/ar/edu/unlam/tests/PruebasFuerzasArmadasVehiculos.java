@@ -4,12 +4,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import ar.edu.unlam.fuerzaArmada.Anfibio;
-import ar.edu.unlam.fuerzaArmada.Avion;
-import ar.edu.unlam.fuerzaArmada.Barco;
-import ar.edu.unlam.fuerzaArmada.HidroAvion;
-import ar.edu.unlam.fuerzaArmada.Tanque;
-import ar.edu.unlam.fuerzaArmada.Vehiculo;
+import ar.edu.unlam.fuerzaArmada.vehiculos.Anfibio;
+import ar.edu.unlam.fuerzaArmada.vehiculos.Avion;
+import ar.edu.unlam.fuerzaArmada.vehiculos.Barco;
+import ar.edu.unlam.fuerzaArmada.vehiculos.HidroAvion;
+import ar.edu.unlam.fuerzaArmada.vehiculos.Tanque;
+import ar.edu.unlam.fuerzaArmada.vehiculos.Vehiculo;
 import interfaces.Terrestre;
 import interfaces.Volador;
 
@@ -54,7 +54,7 @@ public class PruebasFuerzasArmadasVehiculos {
 		assertTrue(((Anfibio)anfibio1).navegar());
 		assertTrue(((Anfibio) anfibio1).desplazarse());
 	}
-	@Test//#4
+	@Test//#5
 	public void queUnVehiculoAnfibioHidroAvionPuedaNavegarYDespegar() {
 		//ENTRADA
 		String codigoVehiculo = "Hidro001";
